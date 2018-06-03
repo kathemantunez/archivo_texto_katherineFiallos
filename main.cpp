@@ -12,8 +12,8 @@ using std::string;
 
 
 void ingredientesTemp();
-void platos1();
-void compra1();
+//void platos1();
+//void compra1();
 
 vector<ingredientes*> v_ingredientes;
 vector<platos*> v_platos;
@@ -29,7 +29,7 @@ int main(){
     char tecla;
     do{
         cout<<"BIENVENIDO"<<endl;
-        cout<<"1. ingredientes\n2. platos\n3. compra\n4. salir"<<endl;
+        cout<<"s.ingredientes(archivo texto)\n1. ingredientes\n2. platos\n3. compra\n4. salir"<<endl;
         cout<<"ingrese su opcion:"<<endl;
         cin>>tecla;
         switch(tecla){
@@ -37,13 +37,16 @@ int main(){
                 ingredientesTemp();
                 break;
             case '2':
-                platos1();
+               // platos1();
                 break;
             case '3':
-                compra1();
+                //compra1();
                 break;
             case '4':
                 opcion=false;
+                break;
+            case 's':
+                ingredientestxt();
                 break;
             default:
                 cout<<"opcion incorrecta";
@@ -55,6 +58,9 @@ int main(){
     while(opcion==true);
     
     return 0;
+}
+void ingredientestxt(){
+    cout<<"hola"<<<endl;
 }
 
 void ingredientesTemp(){
@@ -85,6 +91,8 @@ void ingredientesTemp(){
             cout<<bodega1->v_ingredientes.size()<<endl;
            // bodega1(ingre);
             
+
+        
                  
             
             
@@ -101,7 +109,7 @@ void ingredientesTemp(){
             cout<<"opcion incorrecta"<<endl;
             break;
     }
-}
+}/*
 void platos1(){
     platos* p;
     
@@ -146,14 +154,14 @@ void platos1(){
                     }else{
                         cout<<"en este momento no tenemos en existencia ese ingrediente, lo sentimos"<<endl;
                     }*/
-                }
+           /*     }
                
             
           for(int i=0;v_ingredientes.size();i++){
                
                if(i=0){
                    sabor=v_ingredientes[i]->getcantidad_sabor();*/
-                   p=new platos(v_ingredientes[i],re,sabor,registro,precio,valor,nombre);
+                 /*  p=new platos(v_ingredientes[i],re,sabor,registro,precio,valor,nombre);
                    v_platos.push_back(p);
 
              }
@@ -185,5 +193,5 @@ void platos1(){
 
 void compra1(){
 
-}
+}*/
 

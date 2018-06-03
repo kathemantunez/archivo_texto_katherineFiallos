@@ -1,0 +1,1 @@
+mangos,10,fruta,25,3;queso6,lacteos,33,5;tomates,3,verura,1,6/
