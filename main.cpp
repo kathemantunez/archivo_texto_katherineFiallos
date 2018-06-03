@@ -3,6 +3,9 @@
 #include "ingredientes.h"
 #include "platos.h"
 #include <vector>
+#include <fstream>
+#include <string>
+#include <cstring>
 using namespace std;
 using std::cout;
 using std::cin;
@@ -14,6 +17,7 @@ using std::string;
 void ingredientesTemp();
 //void platos1();
 //void compra1();
+void ingredientestxt();
 
 vector<ingredientes*> v_ingredientes;
 vector<platos*> v_platos;
@@ -60,7 +64,42 @@ int main(){
     return 0;
 }
 void ingredientestxt(){
-    cout<<"hola"<<<endl;
+    char tecla;
+  cout<<"1.crear ingredientes\n2.listar ingredientes"<<endl;
+    cin>>tecla;
+        string nombre;
+            ifstream archivo;
+    switch(tecla){
+        case '1':
+        
+
+            archivo.open("INGREDIENTES.txt",ios::in);
+            ingredientes* ingre;
+            while(!archivo.eof()){
+                
+                getline(archivo,nombre);
+                bodega1->setingredientes(new ingredientes(nombre,0,"",0,0));
+                
+
+            }
+            archivo.close();
+            cout<<"ingredientes registrados"<<endl;
+            break;
+
+        case '2':
+
+            for(int i=0;i<bodega1->v_ingredientes.size();i++){
+                cout<<"["<<bodega1->getingredientes(i)->getnombre()<<"]"<<endl;
+
+            }
+            cout<<endl;
+            break;
+        default:
+            cout<<"opcion incorrecta"<<endl;
+            break;
+    }
+
+
 }
 
 void ingredientesTemp(){
@@ -88,7 +127,7 @@ void ingredientesTemp(){
             cin>>duracion;
             ingre=new ingredientes(nombre,cantidad,tipo,cantidad_s,duracion);
             bodega1->setingredientes(ingre);
-            cout<<bodega1->v_ingredientes.size()<<endl;
+           // cout<<bodega1->v_ingredientes.size()<<endl;
            // bodega1(ingre);
             
 
@@ -100,7 +139,7 @@ void ingredientesTemp(){
             break;
         case '2':
             for(int i=0;i<bodega1->v_ingredientes.size();i++){
-                cout<<"["<<bodega1->getingredientes(i)->getnombre()<<"]";
+                cout<<"["<<bodega1->getingredientes(i)->getnombre()<<"]"<<endl;
 
             }
             cout<<endl;
@@ -146,22 +185,22 @@ void platos1(){
                     cout<<"opcion invalidad"<<endl;
                 }else{
                     v_ingredientes.push_back(bodega1->v_ingredientes[op]);
-                   /* if(bodega1->v_ingredientes[op]->getcantidad()>0){
+                    if(bodega1->v_ingredientes[op]->getcantidad()>0){
                         int cant_existencia=bodega1->v_ingredientes[op]->getcantidad();
-                       p=new platos(bodega1->v_ingredientes[op],reseña,bodega1->v_ingredientes[op]->;
+                       p=new platos(bodega1->v_ingredientes[op],re,bodega1->v_ingredientes[op]->getcantidad_sabor(),0,precio,0);
                     v_platos.push_back(p);
 
                     }else{
                         cout<<"en este momento no tenemos en existencia ese ingrediente, lo sentimos"<<endl;
-                    }*/
-           /*     }
+                    }
+              }
                
             
           for(int i=0;v_ingredientes.size();i++){
                
                if(i=0){
-                   sabor=v_ingredientes[i]->getcantidad_sabor();*/
-                 /*  p=new platos(v_ingredientes[i],re,sabor,registro,precio,valor,nombre);
+                   sabor=v_ingredientes[i]->getcantidad_sabor();
+                   p=new platos(v_ingredientes[i],re,sabor,registro,precio,valor,nombre);
                    v_platos.push_back(p);
 
              }
